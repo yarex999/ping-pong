@@ -316,3 +316,14 @@ function drawEverything() {
 function getRadians(degrees) {
     return (Math.PI / 180) * degrees;
 }
+
+
+document.querySelector('#wrapper').addEventListener('touchstart', event => {
+    let touchY = event.changedTouches['0'].pageY;
+    let touchX = event.changedTouches['0'].pageX;
+    if(touchY >= platformOneY && touchY <= platformOneY + platformHeight && touchX <= platformWidth + platformOneX){
+       document.querySelector('#wrapper').addEventListener('touchmove', event => {
+           platformOneY = event.changedTouches['0'].pageY
+       })
+    }
+})
